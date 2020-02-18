@@ -18,6 +18,9 @@
     "react-native-vector-icons": "^6.6.0",
     "react-native-web": "~0.11.7",
     "react-navigation": "^4.1.1",
+    "reactotron-react-native": "^4.0.3",
+    "reactotron-redux": "^3.1.2",
+    "reactotron-redux-saga": "^4.2.3",
     "styled-components": "^5.0.1"
   },
   "devDependencies": {
