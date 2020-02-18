@@ -54,6 +54,7 @@ export function* signUp({ payload }) {
       'Falha no cadastro',
       'Houve um erro no cadastro. Verifique seus dados.'
     );
+    yield put(signFailure());
   }
 }
 
