@@ -29,6 +29,11 @@ export const SubmitButton = styled(Button)`
   margin-top: 5px;
 `;
 
+export const LogoutButton = styled(Button)`
+  background: #f64c71;
+  margin-top: 10px;
+`;
+
 export const Separator = styled.View`
   height: 1px;
   background: rgba(255, 255, 255, 0.2);
