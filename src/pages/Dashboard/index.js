@@ -9,13 +9,12 @@ import api from '~/services/api';
 
 export default function Dashboard() {
   const [appointments, setAppointments] = useState([]);
+
   useEffect(() => {
     async function loadAppointments() {
       const response = await api.get('/appointments');
 
-      const data = response.data.map(a => a);
-
-      setAppointments(data);
+      setAppointments(response.data);
     }
 
     loadAppointments();
