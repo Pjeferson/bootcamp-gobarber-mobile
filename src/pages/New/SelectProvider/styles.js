@@ -4,7 +4,7 @@ import { RectButton } from 'react-native-gesture-handler';
 
 export const Container = styled.SafeAreaView`
   flex: 1;
-  margin-top: ${Platform.OS == 'ios' ? '0' : '30px'};
+  margin-top: ${Platform.OS === 'ios' ? '0' : '30px'};
 `;
 
 export const ProvidersList = styled.FlatList.attrs({
