@@ -13,3 +13,16 @@ export default function SelectProvider() {
     </Background>
   );
 }
+
+SelectProvider.navigationOptions = ({ navigation }) => ({
+  title: 'Selecione o prestador',
+  headerLeft: () => (
+    <TouchableOpacity
+      onPress={() => {
+        navigation.navigate('Dashboard');
+      }}
+    >
+      <Icon name="chevron-left" size={20} color="#fff" />
+    </TouchableOpacity>
+  ),
+});
