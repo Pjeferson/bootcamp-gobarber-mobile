@@ -56,11 +56,9 @@ function Dashboard({ isFocused }) {
 
 Dashboard.navigationOptions = {
   tabBarLabel: 'Agendamentos',
-  tabBarIcon: ((({ tintColor }) => (
+  tabBarIcon: ({ tintColor }) => (
     <Icon name="event" size={20} color={tintColor} />
-  )).propTypes = {
-    tintColor: PropTypes.string.isRequired,
-  }),
+  ),
 };
 
 Dashboard.propTypes = {
