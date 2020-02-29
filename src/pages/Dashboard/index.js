@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Alert } from 'react-native';
 import PropTypes from 'prop-types';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { withNavigationFocus } from 'react-navigation';
@@ -14,9 +15,16 @@ function Dashboard({ isFocused }) {
 
   useEffect(() => {
     async function loadAppointments() {
-      const response = await api.get('/appointments');
+      try {
+        const response = await api.get('/appointments');
 
-      setAppointments(response.data);
+        setAppointments(response.data);
+      } catch (error) {
+        Alert.alert(
+          'Falha ao carregar agendamentos',
+          'Não foi possível carregar os seus agendamentos.'
+        );
+      }
     }
     if (isFocused) {
       loadAppointments();
@@ -24,18 +32,25 @@ function Dashboard({ isFocused }) {
   }, [isFocused]);
 
   async function handleCancel(id) {
-    await api.delete(`/appointments/${id}`);
+    try {
+      await api.delete(`/appointments/${id}`);
 
-    setAppointments(
-      appointments.map(appointment =>
-        appointment.id === id
-          ? {
-              ...appointment,
-              cancelable: false,
-            }
-          : appointment
-      )
-    );
+      setAppointments(
+        appointments.map(appointment =>
+          appointment.id === id
+            ? {
+                ...appointment,
+                cancelable: false,
+              }
+            : appointment
+        )
+      );
+    } catch (error) {
+      Alert.alert(
+        'Falha ao cancelar agendamento',
+        'Não foi possível cancelar o agendamento. Verifique o mesmo.'
+      );
+    }
   }
 
   return (
